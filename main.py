@@ -6,7 +6,12 @@ menu = """===== BANCO PYTHON =====\n\n1 - Depositar
 
 def exibir_menu():
     print(menu)
-    return int(input("Escolha uma opção: "))
+    while True:
+        try:
+            return int(input("Escolha uma opção: "))
+        except ValueError:
+            print("Opção inválida. Por favor, escolha uma opção válida.\n")
+            print(menu)
 
 def depositar(valor, saldo, extrato):
 
@@ -37,12 +42,26 @@ while selecao != 5:
 
     if selecao == 1:
         print(f"===== DEPOSITAR =====\n")
-        valor = float(input(f"Digite o valor do depósito:\n"))
+
+        while True:
+            try:
+             valor = float(input(f"Digite o valor do depósito:\n"))
+             break
+            except ValueError:
+             print("\nValor inválido.\n")
+
         saldo = depositar(valor, saldo, extrato)
 
     elif selecao == 2:
         print(f"===== SACAR =====\n")
-        saque = float(input(f"Digite o valor do saque:\n"))
+        
+        while True:
+         try:
+          saque = float(input(f"Digite o valor do saque:\n"))
+          break
+         except ValueError:
+          print("\nValor inválido.\n")
+
         saldo = sacar(saque, saldo, extrato)
         
     elif selecao == 3:
