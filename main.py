@@ -44,11 +44,11 @@ while selecao != 5:
         print(f"===== DEPOSITAR =====\n")
 
         while True:
-            try:
-             valor = float(input(f"Digite o valor do depósito:\n"))
-             break
-            except ValueError:
-             print("\nValor inválido.\n")
+         try:
+           valor = float(input(f"Digite o valor do depósito:\n"))
+           break
+         except ValueError:
+           print("\nValor inválido.\n")
 
         saldo = depositar(valor, saldo, extrato)
 
